@@ -37,7 +37,7 @@ Text methods are:
 ```cpp
 oled.cursor([x], [y]);  // Set text postion (x = 0 to width, y = 0 to height).
 oled.wrapMode([bool]);  // Set text wrap to on or off; text wrap may not work properly in all cases.
-oled.font([scale], [bool];  // Set the scale to 1 (normal) or more (larger) and whether to display or delete.
+oled.style([scale], [bool];  // Set the scale to 1 (normal) or more (larger) and whether to display or delete.
 oled.print([String to print]);
 oled.println([text to print]);
 oled.CR();   // Prints line break.
