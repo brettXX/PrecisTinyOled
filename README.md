@@ -14,7 +14,7 @@ void loop(){
 }
 ```
 
-While multiple OLEDs can be used, each acting as a separate object for the PrecisTonyOled class and requiring a unique I2C address, this would be a huge drain on memory and is not advised except for very basic sketches.
+While multiple OLEDs can be used, each acting as a separate object for the PrecisTonyOled class and requiring a unique I2C address, this would be a potential drain on memory, so mileage may vary.
 
 Screen data is written to the display immediately. Text consumes the bulk of the program space (using the print/println methods), so only numbers and some symbols can be used instead (using the numbers methods), saving considerable program space if text is not necesssary. Custom images and scalable icons can be added via sketch.
 
