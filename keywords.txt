@@ -1,0 +1,41 @@
+#######################################
+# Syntax Coloring Map For PrecisTinyOled
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+Font	KEYWORD1
+Icon	KEYWORD1
+PrecisTinyOled	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+clear	KEYWORD2
+power	KEYWORD2
+contrast	KEYWORD2
+invert	KEYWORD2
+cursor	KEYWORD2
+font	KEYWORD2
+icon	KEYWORD2
+number	KEYWORD2
+image	KEYWORD2
+wrapMode	KEYWORD2
+CR	KEYWORD2
+print	KEYWORD2
+println	KEYWORD2
+begin	KEYWORD2
+I2C	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+SDA	LITERAL1
+SCL	LITERAL1
+SPD	LITERAL1
+ON	LITERAL1
+OFF	LITERAL1
