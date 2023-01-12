@@ -254,9 +254,9 @@ void PrecisTinyOled::print(String txt)
       wrapPos = wrapPos < 0 ? txt.length() - i : wrapPos;
       wrapPos2 = txt.indexOf("-", i ) - i;
       wrapPos2 = wrapPos2 < 0 ? txt.length() - i : wrapPos2;
-      if  (currX + (wrapPos * ( _currFontSize * 4 < 8 ? 8 : _currFontSize * 4)) > width - 1)
+      if  (currX + (wrapPos *  _currFontSize * 4) > width - 1)
       {
-        if (currX + (wrapPos2 * ( _currFontSize * 4 < 8 ? 8 : _currFontSize * 4)) <= width - 1) hyphenate = wrapPos2 + i;
+        if (currX + (wrapPos2 *  _currFontSize * 4) <= width - 1) hyphenate = wrapPos2 + i;
         else
         {
           CR();
@@ -271,7 +271,7 @@ void PrecisTinyOled::print(String txt)
       if (!wrapSkip)
       {
         _text(currX, currY, ch, _currFontSize, _currFontClr);
-        currX += _currFontSize * 4 < 8 ? 8 : _currFontSize * 4;
+        currX += _currFontSize * 4;
       }
       wrapSkip = 0;
       if (hyphenate == i && i > 0)
