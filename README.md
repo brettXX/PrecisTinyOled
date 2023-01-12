@@ -51,5 +51,5 @@ Images can be created as either "byte[]" or "const byte[]". The format consists 
 ```cpp
 const byte IMG1[8] = {16,56,124,254,254,124,56,16};  // sample image of 8 pixels across by 8 (1 page) down
 oled.image([x], [y], [width], [vertical pages], [image], [bool]); // Print [image] at [x],[y] spanning the width by pages down with [bool] to determine display/delete.
-```.
+```
 
