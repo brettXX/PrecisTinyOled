@@ -1,5 +1,5 @@
 # PrecisTinyOled
-Small OLED Library for use with ATtiny 8xx (ATTinyCore) and ATmega 168/328 via I2C. It lacks support for geometric shapes, but custom icons and images can be rendered. The most basic use would be:
+This small OLED Library is primarily for use with ATtiny 85/84/861 (ATTinyCore) and ATmega 168/328 via I2C, but it should work with just about any Microcontroller capable of utilizing the Wire library. It lacks support for geometric shapes, but custom icons and images can be rendered. The most basic use would be:
 ```cpp
 #include "PrecisTinyOled.h"
 PrecisTinyOled oled; // Create one or more oled objects, though more than one is not advised.
