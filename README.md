@@ -18,7 +18,7 @@ While multiple OLEDs can be used, each acting as a separate object for the Preci
 
 Screen data is written to the display immediately. Text consumes the bulk of the program space (using the print/println methods), so only numbers and some symbols can be used instead (using the numbers methods), saving considerable program space if text is not necesssary. Custom images and scalable icons can be added via sketch.
 
-Create a new OLED object by declaring it as an PrecisTinyOled type:
+Create a new OLED object by declaring it as a PrecisTinyOled type:
 ```cpp
 PrecisTinyOled oled;  // All examples assume that oled is the designated display.
 ```
@@ -53,3 +53,5 @@ const byte IMG1[8] = {16,56,124,254,254,124,56,16};  // sample image of 8 pixels
 oled.image([x], [y], [width], [vertical pages], [image], [bool]); // Print [image] at [x],[y] spanning the width by pages down with [bool] to determine display/delete.
 ```
 
+**Notes**
+The best scaling factors for text and icons is 1 to 4 (x1 to x4). The basic text scale is 4x8 pixels, while icons are 8x8. This means that a scale of 2 would make 8x16 pixels for text or 16x16 pixels for icons. The larger the scale, the slower the render. Images cannot be scaled.
