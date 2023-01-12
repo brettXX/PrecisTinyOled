@@ -53,5 +53,5 @@ const byte IMG1[8] = {16,56,124,254,254,124,56,16};  // sample image of 8 pixels
 oled.image([x], [y], [width], [vertical pages], [image], [bool]); // Print [image] at [x],[y] spanning the width by pages down with [bool] to determine display/delete.
 ```
 
-**Notes**
+### Notes
 The best scaling factors for text and icons is 1 to 4 (x1 to x4). The basic text scale is 4x8 pixels, while icons are 8x8. This means that a scale of 2 would make 8x16 pixels for text or 16x16 pixels for icons. The larger the scale, the slower the render. Images cannot be scaled.
