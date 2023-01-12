@@ -5,7 +5,7 @@ Small OLED Library for use with ATtiny 8xx (ATTinyCore) and ATmega 168/328 via I
 PrecisTinyOled oled; // Create one or more oled objects, though more than one is not advised.
 
 void setup(){
-  oled.begin(0x3C, 128, 64);  // Initialize the oled with its I2C address, as well as pixel width and height.
+  oled.begin(0x3C, 128, 64);  // Initialize the oled with its I2C address, as well as pixel width and height (32 or 64).
 }
 
 void loop(){
@@ -29,7 +29,7 @@ oled.begin([i2c address], [screen width (128)], [screen height (32 or 64)]);
 Other options are:
 ```cpp
 oled.I2C([I2C Frequency]);   // Typical speeds are 100000 and 400000.
-oled.contrast([0-255]);  // Change screen brightness.
+oled.contrast([0-255]);  // Change screen brightness. **Still in testing**
 oled.invert([bool]);   // Invert screen image.
 oled.power([bool]);    // Turn screen image on and off.
 ```
@@ -55,3 +55,4 @@ oled.image([x], [y], [width], [vertical pages], [image], [bool]); // Print [imag
 
 ### Notes
 The best scaling factors for text and icons is 1 to 4 (x1 to x4). The basic text scale is 4x8 pixels, while icons are 8x8. This means that a scale of 2 would make 8x16 pixels for text or 16x16 pixels for icons. The larger the scale, the slower the render. Images cannot be scaled.
+Since the text font is designed to conserve space, it is very minimalistic. As such, it is blocky and narrow. If you wish to use more-defined characters, custom icons can be created for 8x8, while bitmaps can be created for large sizes if only a few are needed on the display.
