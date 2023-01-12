@@ -39,7 +39,7 @@ oled.cursor([x], [y]);  // Set text postion (x = 0 to width, y = 0 to height).
 oled.wrapMode([bool]);  // Set text wrap to on or off; text wrap may not work properly in all cases.
 oled.style([scale], [bool]);  // Set the scale to 1 (normal) or more (larger) and whether to display or delete.
 oled.print([String to print]);
-oled.println([text to print]);
+oled.println([String to print]);
 oled.CR();   // Prints line break.
 ```
 Icons can be created using the Icon type. The format is 8 vertically-aligned bytes. They are displayed using the icon method.
