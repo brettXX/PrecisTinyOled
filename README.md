@@ -47,7 +47,7 @@ Icons can be created using the Icon type. The format is 8 vertically-aligned byt
 Icon ICON1 = {16,56,124,254,254,124,56,16};   // sample icon
 oled.icon([x], [y], [Icon], [scale], [bool]); // Print [Icon] at [x],[y] at [scale], with [bool] to determine display/delete.
 ```
-Images can be created as either "byte[]" or "const byte[]". The format consts of any nuumber of vertically-aligned bytes spanning from left to right, next row left to right, etc. They are displayed using the image method.
+Images can be created as either "byte[]" or "const byte[]". The format consists of any number of vertically-aligned bytes spanning from left to right, next row left to right, etc. They are displayed using the image method.
 ```cpp
 const byte IMG1[8] = {16,56,124,254,254,124,56,16};  // sample image of 8 pixels across by 8 (1 page) down
 oled.image([x], [y], [width], [vertical pages], [image], [bool]); // Print [image] at [x],[y] spanning the width by pages down with [bool] to determine display/delete.
