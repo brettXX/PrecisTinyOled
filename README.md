@@ -2,15 +2,15 @@
 Small OLED Library for use with ATtiny 8xx (ATTinyCore) and ATmega 168/328 via I2C. It lacks support for geometric shapes, but custom icons and images can be rendered. The most basic use would be:
 ```cpp
 #include "PrecisTinyOled.h"
-PrecisTinyOled oled1; // Create one or more oled objects, though more than one is not advised.
+PrecisTinyOled oled; // Create one or more oled objects, though more than one is not advised.
 
 void setup(){
-  oled1.begin(0x3C, 128, 64);  // Initialize the oled with its I2C address, as well as pixel width and height.
+  oled.begin(0x3C, 128, 64);  // Initialize the oled with its I2C address, as well as pixel width and height.
 }
 
 void loop(){
 // Your code to determine when to print text to screen
- oled1.print("Sample text.");  // Print text at current location (starting at top left).
+ oled.print("Sample text.");  // Print text at current location (starting at top left).
 }
 ```
 
