@@ -20,7 +20,7 @@ void loop(){
 }
 ```
 
-While multiple OLEDs can be used, each acting as a separate object for the PrecisTonyOled class and requiring a unique I2C address, this would be a potential drain on memory, so mileage may vary.
+While multiple OLEDs can be used, each acting as a separate object for the PrecisTinyOled class and requiring a unique I2C address, this would be a potential drain on memory, so mileage may vary.
 
 Screen data is written to the display immediately. The print method can be used to display text. The numbers method is also available to display larger numbers and some symbols. Custom images and scalable icons can be added via sketch.
 
