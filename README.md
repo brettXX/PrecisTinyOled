@@ -38,7 +38,7 @@ oled.begin([i2c address], [screen width (128)], [screen height (32 or 64)]);
 ```
 Text methods are:
 ```cpp
-oled.cursor([x], [y]);        // Set text postion (x = 0 to width, y = 0 to height).
+oled.cursor([x], [y]);        // Set text postion (x = 0 to width, y = 0 to height); rounds off y to closest page.
 oled.wrapMode([bool]);        // Set text wrap to on or off; text wrap may not work properly in all cases.
 oled.style([scale], [bool]);  // Set the scale to 1 (normal) or more (larger) and whether to display or delete.
 oled.print([text]);           // Displays text.
