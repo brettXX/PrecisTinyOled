@@ -5,7 +5,8 @@ This small OLED Library is primarily for use with ATtiny 84/85/88/861 (ATTinyCor
 PrecisTinyOled oled;          // Create one or more oled objects, though more than one is not advised.
 
 void setup(){
-  // This initializes the oled with its I2C address, pixel width, and pixel height (32 or 64), and also starts Wire using the default SDA and SCL pins.
+  // This initializes the oled with its I2C address, pixel width, and pixel height (32 or 64)
+  // and also starts Wire using the default SDA and SCL pins.
   oled.begin(0x3C, 128, 64); 
 }
 
