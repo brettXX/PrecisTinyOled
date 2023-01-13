@@ -1,5 +1,9 @@
 # PrecisTinyOled
-This small OLED Library is primarily for use with ATtiny 84/85/88/861 (ATTinyCore) and ATmega 168/328 via I2C, but it should work with just about any Microcontroller capable of utilizing the Wire library and I2C-based 128x32 and 128x64 oleds. It lacks support for geometric shapes, but custom icons and images can be rendered. The most basic use would be:
+This small OLED Library is primarily for use with ATtiny 84/85/88/861 (ATTinyCore) and ATmega 168/328 via I2C, but it should work with just about any Microcontroller capable of utilizing the Wire library and I2C-based 128x32 and 128x64 oleds.
+
+This library was created to require minimal resources. While it lacks support for geometric shapes, custom icons and images can be created and even replace some facets of those shapes, such as for borders.
+
+The most basic use would be:
 ```cpp
 #include "PrecisTinyOled.h"
 PrecisTinyOled oled;          // Create one or more oled objects, though more than one is not advised.
@@ -64,5 +68,7 @@ oled.power([bool]);      // Turn screen image on and off.
 The best scaling factors for text and icons is 1 to 4 (x1 to x4). The basic text scale is 4x8 pixels, while icons are 8x8. This means that a scale of 2 would make 8x16 pixels for text or 16x16 pixels for icons. The larger the scale, the slower the render. Images cannot be scaled.
 
 Since the text font is designed to conserve space, it is very minimalistic. As such, it is blocky and narrow. If you wish to use more-defined characters, custom icons can be created for 8x8, while bitmaps can be created for large sizes if only a few are needed on the display.
+
+Both the print and number methods require a char string, so int, float, and long would have to be converted first, such as by using dtostrf.
 
 The current position for text placement is stored in the currX and currY variables (oled.currX and oled.currY).
