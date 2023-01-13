@@ -16,7 +16,7 @@ void loop(){
 
 While multiple OLEDs can be used, each acting as a separate object for the PrecisTonyOled class and requiring a unique I2C address, this would be a potential drain on memory, so mileage may vary.
 
-Screen data is written to the display immediately. The print method (for text) seems to consume the bulk of the program space, so the numbers method (displaying only numbers and some symbols) can be used instead, saving space if text is not necesssary. Custom images and scalable icons can be added via sketch.
+Screen data is written to the display immediately. The print method can be used to display text. The numbers method is also available to display larger numbers and some symbols. Custom images and scalable icons can be added via sketch.
 
 Create a new OLED object by declaring it as a PrecisTinyOled type:
 ```cpp
