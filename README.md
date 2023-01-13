@@ -71,4 +71,4 @@ Since the text font is designed to conserve space, it is very minimalistic. As s
 
 Both the print and number methods require a char string, so int, float, and long would have to be converted first, such as by using dtostrf.
 
-The current position for text placement is stored in the currX and currY variables (oled.currX and oled.currY). When entering a value for y, the print, number, icon, and image methods associate it with the closest page.
+The current position for text placement is stored in the currX and currY variables (oled.currX and oled.currY). The print, number, icon, and image methods associate any y values with the closest page.
