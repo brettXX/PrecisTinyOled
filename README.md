@@ -22,16 +22,13 @@ Create a new OLED object by declaring it as a PrecisTinyOled type:
 ```cpp
 PrecisTinyOled oled;  // All examples assume that oled is the designated display.
 ```
+If desired, the I2C speed can be changed from its default value (typically 100000) to a faster rate of 400000 if supported on all connected devices.
+```cpp
+oled.I2C([I2C Frequency]);   // typical speeds are 100000 and 400000.
+```
 Then use the begin method to initialize it: 
 ```cpp
 oled.begin([i2c address], [screen width (128)], [screen height (32 or 64)]);
-```
-Other options are:
-```cpp
-oled.I2C([I2C Frequency]);   // Use before the "begin" method; typical speeds are 100000 and 400000.
-oled.contrast([0-255]);  // Change screen brightness.
-oled.invert([bool]);   // Invert screen image.
-oled.power([bool]);    // Turn screen image on and off.
 ```
 Text methods are:
 ```cpp
@@ -55,7 +52,12 @@ Images can be created as either "byte[]" or "const byte[]". The format consists 
 const byte IMG1[8] = {16,56,124,254,254,124,56,16};  // sample image of 8 pixels across by 8 (1 page) down
 oled.image([x], [y], [width], [vertical pages], [image], [bool]); // Print [image] at [x],[y] spanning the width by pages down with [bool] to determine display/delete.
 ```
-
+Other methods:
+```cpp
+oled.contrast([0-255]);  // Change screen brightness.
+oled.invert([bool]);   // Invert screen image.
+oled.power([bool]);    // Turn screen image on and off.
+```
 ### Notes
 The best scaling factors for text and icons is 1 to 4 (x1 to x4). The basic text scale is 4x8 pixels, while icons are 8x8. This means that a scale of 2 would make 8x16 pixels for text or 16x16 pixels for icons. The larger the scale, the slower the render. Images cannot be scaled.
 
