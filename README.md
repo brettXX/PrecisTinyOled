@@ -39,8 +39,7 @@ oled.cursor([x], [y]);  // Set text postion (x = 0 to width, y = 0 to height).
 oled.wrapMode([bool]);  // Set text wrap to on or off; text wrap may not work properly in all cases.
 oled.style([scale], [bool]);  // Set the scale to 1 (normal) or more (larger) and whether to display or delete.
 oled.print([text to print]);
-oled.println([text to print]);
-oled.CR();   // Prints line break.
+oled.CR();   // Prints line break (or use \n with the print method).
 ```
 If you only need to display numbers, use the number method instead of print/println. This should save program space, but it requires a bit more memory. Only 0-9#$%+-.: can be displayed using this Icon-based method.
 ```cpp
