@@ -29,7 +29,7 @@ oled.begin([i2c address], [screen width (128)], [screen height (32 or 64)]);
 Other options are:
 ```cpp
 oled.I2C([I2C Frequency]);   // Use before the "begin" method; typical speeds are 100000 and 400000.
-oled.contrast([0-255]);  // Change screen brightness. **Still in testing**
+oled.contrast([0-255]);  // Change screen brightness.
 oled.invert([bool]);   // Invert screen image.
 oled.power([bool]);    // Turn screen image on and off.
 ```
