@@ -72,3 +72,5 @@ Since the text font is designed to conserve space, it is very minimalistic. As s
 Both the print and number methods require a char string, so int, float, and long would have to be converted first, such as by using dtostrf.
 
 The current position for text placement is stored in the currX and currY variables (oled.currX and oled.currY). The print, number, icon, and image methods associate any y values with the closest page.
+
+Obviously, drawing to an oled works best at the fastest possible speeds. This means that as long as all connected I2C devices are compatible with 400000, that setting should be used. Likewise, an ATiny device should be clocked at 16MHz for optimal speed, but 8MHz will also work.
