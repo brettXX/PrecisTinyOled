@@ -67,7 +67,7 @@ oled.power([bool]);      // Turn screen image on and off.
 ### Notes
 The best scaling factors for text and icons is 1 to 4 (x1 to x4). The basic text scale is 4x8 pixels, while icons are 8x8. This means that a scale of 2 would make 8x16 pixels for text or 16x16 pixels for icons. The larger the scale, the slower the render. Images cannot be scaled.
 
-Since the text font is designed to conserve space, it is very minimalistic. As such, it is blocky and narrow. If you wish to use more-defined characters, custom icons can be created for 8x8, while bitmaps can be created for large sizes if only a few are needed on the display.
+Since the text font is designed to conserve space, it is very minimalistic. As such, it is blocky, narrow, and lack lower-case letters. If you wish to use more-defined characters, custom icons can be created for 8x8, while bitmaps can be created for large sizes if only a few are needed on the display.
 
 Both the print and number methods require a char string, so int, float, and long would have to be converted first, such as by using dtostrf.
 
