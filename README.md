@@ -42,10 +42,14 @@ oled.print([text to print]);
 oled.println([text to print]);
 oled.CR();   // Prints line break.
 ```
+If you only need to display numbers, use the number method instead of print/println. This should save program space, but it requires a bit more memory. Only 0-9#$%+-.: can be displayed using this Icon-based method.
+```cpp
+oled.number([x],[y], [combination of 0-9#$%+-.:], [scale], [bool]);  // Print characters at [x],[y] at [scale] with [bool] to determine display/delete.
+```
 Icons can be created using the Icon type. The format is 8 vertically-aligned bytes. They are displayed using the icon method.
 ```cpp
 Icon ICON1 = {16,56,124,254,254,124,56,16};   // sample icon
-oled.icon([x], [y], [Icon], [scale], [bool]); // Print [Icon] at [x],[y] at [scale], with [bool] to determine display/delete.
+oled.icon([x], [y], [Icon], [scale], [bool]); // Print [Icon] at [x],[y] at [scale] with [bool] to determine display/delete.
 ```
 Images can be created as either "byte[]" or "const byte[]". The format consists of any number of vertically-aligned bytes spanning from left to right, next row left to right, etc. They are displayed using the image method.
 ```cpp
