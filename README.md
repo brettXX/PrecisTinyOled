@@ -62,4 +62,4 @@ The best scaling factors for text and icons is 1 to 4 (x1 to x4). The basic text
 
 Since the text font is designed to conserve space, it is very minimalistic. As such, it is blocky and narrow. If you wish to use more-defined characters, custom icons can be created for 8x8, while bitmaps can be created for large sizes if only a few are needed on the display.
 
-The current x and y position for text placement are stored in the currX and currY variables (oled.currX and oled.currY).
+The current position for text placement is stored in the currX and currY variables (oled.currX and oled.currY).
