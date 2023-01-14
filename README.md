@@ -58,23 +58,35 @@ Images can be created as either "byte[]" or "const byte[]". The format consists 
 const byte IMG1[8] = {16,56,124,254,254,124,56,16};  // sample image of 8 pixels across by 8 (1 page) down
 oled.image([x], [y], [width], [vertical pages], [image], [bool]); // Print [image] at [x],[y] spanning the [width] by pages down with [bool] to determine display/delete.
 ```
-Time-saving methods:
-```cpp
-oled.progressBar([x], [y], [width], [progress %]);   // Draw progress bar starting at [x],[y] spanning the [width] using the [progress % (0-100)].
-```
 Other methods:
 ```cpp
 oled.contrast([0-255]);  // Change screen brightness.
 oled.invert([bool]);     // Invert screen image.
 oled.power([bool]);      // Turn screen image on and off.
 ```
+Aids:
+```cpp
+oled.progressBar([x], [y], [width], [progress %]);   // Draw progress bar starting at [x],[y] spanning the [width] using the [progress % (0-100)].
+```
 ### Notes
 The best scaling factors for text and icons is 1 to 4 (x1 to x4). The basic text scale is 4x8 pixels, while icons are 8x8. This means that a scale of 2 would make 8x16 pixels for text or 16x16 pixels for icons. The larger the scale, the slower the render. Images cannot be scaled.
 
 Since the text font is designed to conserve space, it is very minimalistic. As such, it is blocky, narrow, and lacks lower-case letters. If you wish to use more-defined characters, custom icons can be created for 8x8, while bitmaps can be created for large sizes if only a few are needed on the display.
 
-Both the print and number methods require a char string, so int, float, and long would have to be converted first, such as by using dtostrf.
+Both the print and number methods require a char string, so int, long, and float would have to be converted first, such as by using dtostrf or itoa:
+```cpp
+char txt[8];
+itoa(integer, txt, 10);     // Convert integer to txt using base10.
+// or
+char txt[10];
+ltoa(long, txt, 10);        // Convert long to txt using base10.
+// or
+char txt[16];
+dtostrf(float, 1, 2, txt);  // Convert float to txt with 2 decimal places.
+```
 
 The current position for text placement is stored in the currX and currY variables (oled.currX and oled.currY). The print, number, icon, and image methods associate any y values with the closest page.
 
 Obviously, drawing to an oled works best at the fastest possible speeds. This means that as long as all connected I2C devices are compatible with 400000, that setting should be used. Likewise, an ATiny device should be clocked at 16MHz for optimal speed, but 8MHz will also work.
+
+The following Icons are pre-set: iFILL (fill 8x8), iSHADE (dither 8x8), and iNULL (clear 8x8).
