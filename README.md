@@ -20,7 +20,7 @@ void loop(){
 }
 ```
 
-While multiple OLEDs can be used, each acting as a separate object for the PrecisTinyOled class and requiring a unique I2C address, this would be a potential drain on memory, so mileage may vary.
+Multiple OLEDs can be used, each acting as a separate object for the PrecisTinyOled class. Each one requires a unique I2C address. Lots of screen draws could be a potential drain on memory, so your mileage will vary with multiple displays.
 
 Screen data is written to the display immediately. The print method can be used to display text. The numbers method is also available to display larger numbers and some symbols. Custom images and scalable icons can be added via sketch.
 
@@ -84,6 +84,6 @@ dtostrf(float, 1, 2, txt);  // Convert float to txt with 2 decimal places.
 
 The current position for text placement is stored in the currX and currY variables (oled.currX and oled.currY). The print, number, icon, and image methods associate any y values with the closest page.
 
-Obviously, drawing to an oled works best at the fastest possible speeds. This means that as long as all connected I2C devices are compatible with 400000, that setting should be used. Likewise, an ATiny device should be clocked at 16MHz for optimal speed, but 8MHz will also work.
+Obviously, drawing to an oled works best at the fastest possible speeds. This means that as long as all connected I2C devices are compatible with 400000, that setting should be used. Likewise, an ATtiny device should be clocked at 16MHz for optimal speed, but 8MHz will also work. It multiple oleds are connected, you need only set the I2C speed once.
 
 The following Icons are pre-set: iFILL (fill 8x8), iSHADE (dither 8x8), and iNULL (clear 8x8).
