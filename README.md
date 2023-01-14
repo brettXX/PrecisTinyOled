@@ -63,9 +63,6 @@ Other methods:
 oled.contrast([0-255]);  // Change screen brightness.
 oled.invert([bool]);     // Invert screen image.
 oled.power([bool]);      // Turn screen image on and off.
-```
-Aids:
-```cpp
 oled.progressBar([x], [y], [width], [progress %]);   // Draw progress bar starting at [x],[y] spanning the [width] using the [progress % (0-100)].
 ```
 ### Notes
