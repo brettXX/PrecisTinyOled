@@ -42,9 +42,10 @@ oled.cursor([x], [y]);        // Set text postion (x = 0 to width, y = 0 to heig
 oled.wrapMode([bool]);        // Set text wrap to on or off; text wrap may not work properly in all cases.
 oled.style([scale], [bool]);  // Set the scale to 1 (normal) or more (larger) and whether to display or delete.
 oled.print([text]);           // Displays text.
+oled.printc([text]);          // Displays a line of text automatically centered horizontally.
 oled.CR();                    // Prints line break (or use \n with the print method).
 ```
-If you would like to display slightly larger and nicer numbers, use the number method instead of print. Only 0-9#$%+-.: can be displayed using this Icon-based method.
+If you would like to display slightly larger and nicer numbers on a single line, use the number method instead of print. Only 0-9#$%+-.: can be displayed using this Icon-based method. A line of numbers is automatically centered horizontally when x = 255.
 ```cpp
 oled.number([x],[y], [combination of 0-9#$%+-.:], [scale], [bool]);  // Print characters at [x],[y] at [scale] with [bool] to determine display/delete.
 ```
@@ -66,9 +67,15 @@ oled.power([bool]);      // Turn screen image on and off.
 oled.progressBar([x], [y], [width], [progress %]);   // Draw progress bar starting at [x],[y] spanning the [width] using the [progress % (0-100)].
 ```
 ### Notes
+Obviously, drawing to an oled works best at the fastest possible speeds. This means that as long as all connected I2C devices are compatible with 400000, that setting should be used. Likewise, an ATtiny device should be clocked at 16MHz for optimal speed, but 8MHz will also work. It multiple oleds are connected, you need only set the I2C speed once.
+
 The best scaling factors for text and icons is 1 to 4 (x1 to x4). The basic text scale is 4x8 pixels, while icons are 8x8. This means that a scale of 2 would make 8x16 pixels for text or 16x16 pixels for icons. The larger the scale, the slower the render. Images cannot be scaled.
 
+The current position for text placement is stored in the currX and currY variables (oled.currX and oled.currY). The print, number, icon, and image methods associate any y values with the closest page.
+
 Since the text font is designed to conserve space, it is very minimalistic. As such, it is blocky, narrow, and lacks lower-case letters. If you wish to use more-defined characters, custom icons can be created for 8x8, while bitmaps can be created for large sizes if only a few are needed on the display.
+
+The following Icons are pre-set: iFILL (fill 8x8), iSHADE (dither 8x8), and iNULL (clear 8x8).
 
 Both the print and number methods require a char string, so int, long, and float would have to be converted first, such as by using dtostrf or itoa:
 ```cpp
@@ -81,9 +88,3 @@ ltoa(long, txt, 10);        // Convert long to txt using base10.
 char txt[16];
 dtostrf(float, 1, 2, txt);  // Convert float to txt with 2 decimal places.
 ```
-
-The current position for text placement is stored in the currX and currY variables (oled.currX and oled.currY). The print, number, icon, and image methods associate any y values with the closest page.
-
-Obviously, drawing to an oled works best at the fastest possible speeds. This means that as long as all connected I2C devices are compatible with 400000, that setting should be used. Likewise, an ATtiny device should be clocked at 16MHz for optimal speed, but 8MHz will also work. It multiple oleds are connected, you need only set the I2C speed once.
-
-The following Icons are pre-set: iFILL (fill 8x8), iSHADE (dither 8x8), and iNULL (clear 8x8).
