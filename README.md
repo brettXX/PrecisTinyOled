@@ -1,5 +1,5 @@
 # PrecisTinyOled
-This small OLED Library is primarily for use with ATtiny 84/85/88/861 (ATTinyCore) and ATmega 168/328 via I2C, but it should work with just about any Microcontroller capable of utilizing the Wire library and I2C-based 128x32 and 128x64 oleds.
+This small OLED Library is primarily for use with ATtiny 84/85/88/861 (ATTinyCore) and ATmega 168/328 via I2C, but it should work with just about any Microcontroller capable of utilizing the Wire library and I2C-based 128x32 and 128x64 oleds. The default SDA and SCL pins must be used.
 
 This library was created to require minimal resources and be fairly easy to use. While it lacks support for geometric shapes, custom icons and images can be created and even replace some facets of those shapes, such as for borders.
 
