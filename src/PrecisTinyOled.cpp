@@ -169,7 +169,7 @@ void PrecisTinyOled::icon(byte x, byte y, Icon icond, byte iconSize, bool clr)
   }
 }
 
-void PrecisTinyOled::number(byte x, byte y, char * n, byte iconSize, bool clr)
+void PrecisTinyOled::number(byte x, byte y, const char * n, byte iconSize, bool clr)
 {
   if (x == 255) x = (floor((width - strlen(n) * iconSize * 8) / 2) / 8) * 8;
   currX = x;
@@ -249,7 +249,7 @@ void PrecisTinyOled::CR()
   }
 }
 
-int PrecisTinyOled::_charPos(char * haystack, char needle, byte startPos)
+int PrecisTinyOled::_charPos(const char * haystack, char needle, byte startPos)
 {
   for (int i=startPos;i<strlen(haystack);i++)
   {
@@ -258,7 +258,7 @@ int PrecisTinyOled::_charPos(char * haystack, char needle, byte startPos)
   return -1;
 }
 
-void PrecisTinyOled::print(char * txt)
+void PrecisTinyOled::print(const char * txt)
 {
   int wrapPos, wrapPos2;
   bool wrapSkip = 0;
@@ -300,7 +300,7 @@ void PrecisTinyOled::print(char * txt)
   }
 }
 
-void PrecisTinyOled::printc(char * txt)
+void PrecisTinyOled::printc(const char * txt)
 {
   cursor((floor((width - 1 - strlen(txt) * _currFontSize * 3) / 2) / 8) * 8, currY);
   print(txt);
