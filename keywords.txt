@@ -27,6 +27,8 @@ wrapMode	KEYWORD2
 CR	KEYWORD2
 print	KEYWORD2
 printc	KEYWORD2
+println	KEYWORD2
+printBinary	KEYWORD2
 begin	KEYWORD2
 progressBar	KEYWORD2
 I2C	KEYWORD2
