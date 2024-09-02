@@ -1,5 +1,5 @@
-# PrecisTinyOled
-This small OLED Library is primarily for use with ATtiny 84/85/88/861 (ATTinyCore) and ATmega 168/328 via I2C, but it should work with just about any Microcontroller capable of utilizing the Wire library and I2C-based 128x32 and 128x64 oleds. The default SDA and SCL pins must be used.
+# PrecisTinyOled Version 1.1.0
+This small OLED Library is primarily for use with ATtiny 84/85/88/861 (ATTinyCore), ATmega 168/328, and CH32V003 via I2C, but it should work with just about any Microcontroller capable of utilizing the Wire library and I2C-based 128x32 and 128x64 oleds. The default SDA and SCL pins must be used.
 
 This library was created to require minimal resources and be fairly easy to use. While it lacks support for geometric shapes, custom icons and images can be created and even replace some facets of those shapes, such as for borders.
 
@@ -38,16 +38,18 @@ oled.begin([i2c address], [screen width (128)], [screen height (32 or 64)]);
 ```
 Text methods are:
 ```cpp
-oled.cursor([x], [y]);        // Set text postion (x = 0 to width, y = 0 to height).
-oled.wrapMode([bool]);        // Set text wrap to on or off; text wrap may not work properly in all cases.
-oled.style([scale], [bool]);  // Set the scale to 1 (normal) or more (larger) and whether to display or delete.
-oled.print([text]);           // Displays text.
-oled.printc([text]);          // Displays a line of text that is centered horizontally.
-oled.CR();                    // Prints a line break (or use \n with the print method).
+oled.cursor([x], [y]);           // Set text postion (x = 0 to width, y = 0 to height).
+oled.wrapMode([bool]);           // Set text wrap to on or off; text wrap may not work properly in all cases.
+oled.style([scale], [bool]);     // Set the scale to 1 (normal) or more (larger) and whether to display or delete.
+oled.print([text or integer]);   // Displays text or 32-bit unsigned integer.
+oled.println([text or integer]); // Displays text or 32-bit unsigned integer, followed by a line break.
+oled.printc([text or integer]);  // Displays a line of text or 32-bit unsigned integer that is centered horizontally.
+oled.printBinary([integer], [bits], [bool]);  // Converts number to binary and displays it with the specified number of bits, and with or without space between every 8 bits.
+oled.CR();                       // Prints a line break (or use \n with the print method).
 ```
 If you would like to display slightly larger and nicer numbers on a single line, use the *number* method instead of *print*. Only 0-9#$%+-.: can be displayed using this Icon-based method. A line of numbers is automatically centered horizontally when x = 255.
 ```cpp
-oled.number([x],[y], [combination of 0-9#$%+-.:], [scale], [bool]);  // Print characters at [x],[y] at [scale] with [bool] to determine display/delete.
+oled.number([x],[y], [(combination of 0-9#$%+-.:) or (integer)], [scale], [bool]);  // Print number characters or 32-bit unsigned integer at [x],[y] at [scale] with [bool] to determine display/delete.
 ```
 Icons can be created using the *Icon* type. The format is 8 vertically-aligned bytes. They are displayed using the *icon* method.
 ```cpp
@@ -77,14 +79,11 @@ Since the text font is designed to conserve space, it is very minimalistic. As s
 
 The following Icons are pre-set: *iFILL* (solid 8x8), *iSHADE* (dithered 8x8), and *iNULL* (empty 8x8).
 
-Both the *print* and *number* methods require a char string, so int, long, and float would have to be converted first, such as by using *dtostrf* or *itoa*:
+Both the *print* and *number* methods require a char string or integer (up to 32 bits), but float (decimal places) would have to be converted first, such as by using *dtostrf*:
 ```cpp
-char txt[8];
-itoa(integer, txt, 10);     // Convert integer to txt using base10.
-// or
-char txt[10];
-ltoa(long, txt, 10);        // Convert long to txt using base10.
-// or
 char txt[16];
 dtostrf(float, 1, 2, txt);  // Convert float to txt with 2 decimal places.
 ```
+
+### Releases
+1.1.0   Added println, printBinary, and support for integers with print.
