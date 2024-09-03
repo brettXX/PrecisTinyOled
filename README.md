@@ -1,5 +1,5 @@
 # PrecisTinyOled Version 1.1.0
-This small OLED Library is primarily for use with ATtiny 84/85/88/861 (ATTinyCore), ATmega 168/328, and CH32V003 via I2C, but it should work with just about any Microcontroller capable of utilizing the Wire library and I2C-based 128x32 and 128x64 oleds. The default SDA and SCL pins must be used.
+This small OLED Library is primarily for use with ATtiny 84/85/88/861 (ATTinyCore), ATmega 168/328, CH32V003, CH32X035/33 via I2C, but it should work with just about any Microcontroller capable of utilizing the Wire library and I2C-based 128x32 and 128x64 oleds. The default SDA and SCL pins must be used.
 
 This library was created to require minimal resources and be fairly easy to use. While it lacks support for geometric shapes, custom icons and images can be created and even replace some facets of those shapes, such as for borders.
 
@@ -70,6 +70,8 @@ oled.progressBar([x], [y], [width], [progress %]);   // Draw progress bar starti
 ```
 ### Notes
 Obviously, drawing to an oled works best at the fastest possible speeds. This means that as long as all connected I2C devices are compatible with 400000, that setting should be used. Likewise, an ATtiny should be clocked at 16MHz for optimal speed, but 8MHz will also work. If multiple oleds are connected, you need only set the I2C speed once.
+
+While this is compatible with the CH32V003, flash and RAM space would be extremely tight. The CH32X035 and CH32X033 would have not problem in that regard.
 
 The best scaling factors for text and icons is 1 to 4 (x1 to x4). The basic text scale is 4x8 pixels, while icons are 8x8. This means that a scale of 2 would make 8x16 pixels for text or 16x16 pixels for icons. The larger the scale, the slower the render. Images cannot be scaled.
 
