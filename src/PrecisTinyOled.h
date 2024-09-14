@@ -6,6 +6,9 @@
 	#endif
 	
 	typedef const uint8_t Icon[8];
+	extern Icon iFILL;
+	extern Icon iSHADE;
+	extern Icon iNULL;
 	
 	#define ON true
 	#define OFF false
@@ -43,18 +46,20 @@
 		void begin(uint8_t addr, uint8_t w, uint8_t h);
 		void I2C(long SPD);
 		void progressBar(uint8_t x, uint8_t y, uint8_t width, uint8_t progress);
+		void _text(uint8_t x, uint8_t y, char txt, uint8_t textSize, bool clr);
+		int _charPos(const char * haystack, char needle, uint8_t startPos);
+		void _stream(uint8_t com, uint8_t mode);
+		void startStream();
+		void endStream();
+		void _write(uint8_t com, uint8_t mode);
 		
 		private:
 		long _SPD;
 		uint8_t _currFontSize;
 		bool _currFontClr;
 		bool _wordWrapState;
-		void _write(uint8_t com, uint8_t mode);
-		void _stream(uint8_t com, uint8_t mode);
 		void _writePage(uint8_t col, uint8_t page, uint8_t pageData);
 		void _oCursor(uint8_t x, uint8_t y, uint8_t xlen, uint8_t ylen);
-		void _text(uint8_t x, uint8_t y, char txt, uint8_t textSize, bool clr);
-		int _charPos(const char * haystack, char needle, uint8_t startPos);
 		void _processImage(uint8_t x, uint8_t y, uint8_t w, uint8_t h,  uint8_t *img, bool MEM);
 	};
 #endif
